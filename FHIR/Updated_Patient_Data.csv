@@ -1,0 +1,13 @@
+EMR_ID,PHR_ID, Name,Action,ConscentID,TargetURL
+95588c2f,46111426,由美麗,Delete,2cbeed26-3435-4556-b172-b9f366a32afa,https://hapi.fhir.org/baseR4/Patient/f35d02a1
+0c15e27f,46111901,媽媽,View,998514bd-9926-438c-aa52-d71ef969a972,https://hapi.fhir.org/baseR4/Patient/1ea4b048
+28259a53,46111906,Papa,Share,570c9b9c-ecb1-4ad8-991d-049c71a47dfc,https://hapi.fhir.org/baseR4/Patient/d7c743f6
+e4e9b8d3,46111923,麽麽,View,37b11113-e445-4ce3-9b07-13b58bee3684,https://hapi.fhir.org/baseR4/Patient/2c520f9d
+479679ab,46122748,linzhifa,Edit,d2617fc6-d5c7-40f9-9950-eedb0d8eee13,https://hapi.fhir.org/baseR4/Patient/4d2c71a6
+3f45f7c9,46123361,Drogba,View,991e798e-acce-488d-8886-743b73a88c0d,https://hapi.fhir.org/baseR4/Patient/dffb5b10
+2d3dd833,46136531,cak,View,a480b9ca-3444-4c98-90d5-7b251ceb5cd4,https://hapi.fhir.org/baseR4/Patient/aa76b0c4
+51e2d084,46149974,破殼,Share,cb5dd03e-ae0c-404b-8913-1f6f0a1d46fb,https://hapi.fhir.org/baseR4/Patient/20b72c83
+c9482244,46159978,pupuchacha,View,bcaa1e33-97f9-4656-91c8-4e1aa0ee9b14,https://hapi.fhir.org/baseR4/Patient/fe6acdbe
+e28f3a75,46166293,CHildren,Edit,e6692ea6-e33c-476f-a80c-ddc1429f3fdb,https://hapi.fhir.org/baseR4/Patient/70132437
+eaa418e7,46199219,林,Edit,6a041f67-9209-44f6-b6cb-e4fee6ddddc1,https://hapi.fhir.org/baseR4/Patient/533dc406
+0442c9bd,46302787,由美麗,Share,93dcb8e2-de9e-45cc-a128-6c3c729ec2e5,https://hapi.fhir.org/baseR4/Patient/ba6609e0

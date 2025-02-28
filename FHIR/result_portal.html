@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <title>從 URL 讀取 CSV 資料表格顯示</title>
+    <style>
+        table, th, td {
+            border: 1px solid black;
+            border-collapse: collapse;
+            padding: 8px;
+        }
+        th {
+            background-color: #f2f2f2;
+        }
+    </style>
+    <script src="Cookie.js"></script>
+</head>
+<body>
+
+<h2>從 URL 讀取的 CSV 資料表格</h2>
+<div>
+    <table id="dataTable">
+        <thead>
+            <tr>
+                <th>EMR_ID</th>
+                <th>PHR_ID</th>
+                <th>Name</th>
+                <th>Action</th>
+                <th>ConscentID</th>
+                <th>TargetURL</th>
+            </tr>
+        </thead>
+        <tbody></tbody>
+    </table>
+</div>
+
+<p>點選任一列資料以顯示 PHR_ID 和 Patient_Name</p>
+<p id="selectedData"></p>
+
+<script>
+const csvUrl = 'Updated_Patient_Data.csv'; // 指定 CSV 檔案位置
+
+// 解析 CSV 字串為物件陣列
+function parseCSV(data) {
+    const rows = data.trim().split('\n');
+    const headers = rows[0].split(',').map(header => header.trim());
+    return rows.slice(1).map(row => {
+        const values = row.split(',').map(value => value.trim());
+        let record = {};
+        headers.forEach((header, i) => {
+            record[header] = values[i] || '';
+        });
+        return record;
+    });
+}
+
+// 在表格中顯示 CSV 資料
+function displayTable(data) {
+    const tbody = document.querySelector('#dataTable tbody');
+    tbody.innerHTML = ''; // 清除舊數據
+    data.forEach(record => {
+        const row = document.createElement('tr');
+        Object.values(record).forEach((cellData, index) => {
+            const cell = document.createElement('td');
+            cell.textContent = cellData;
+            row.appendChild(cell);
+        });
+        row.addEventListener('click', () => displayDetails(record));
+        tbody.appendChild(row);
+    });
+}
+
+// 顯示選取的 PHR_ID 和 Name，並存入 Cookie
+function displayDetails(record) {
+    document.getElementById('selectedData').textContent = `PHR_ID: ${record.PHR_ID}, Name: ${record.Name}`;
+    setCookie("patientID", record.PHR_ID, 1);
+    setCookie("patientName", record.Name, 1);
+    setCookie("TargetURL", record.TargetURL, 1);
+}
+
+// 讀取 CSV 資料並初始化頁面
+fetch(csvUrl)
+    .then(response => response.text())
+    .then(data => {
+        const records = parseCSV(data);
+        displayTable(records);
+    })
+    .catch(error => console.error('讀取 CSV 失敗:', error));
+</script>
+
+</body>
+</html>
